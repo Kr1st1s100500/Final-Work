@@ -23,3 +23,49 @@
 3. Вторым циклом добавляем в массив элементы из входного массива по условию задачи.
 4. Вывод массива.
 5. Печать массива.
+
+# Программа решения задачи
+
+string[] a = new string[] { "hello", "2", "world", ":-)" };
+string[] b = new string[] { "1234", "1567", "-2", "computer science" };
+string[] c = new string[] { "Russia", "Denmark", "Kazan" };
+
+void PrintArray(string[] arr)
+{
+    Console.Write("[");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (i < arr.Length - 1) Console.Write(arr[i] + ",");
+        else Console.Write(arr[i]);
+    }
+    Console.WriteLine("]");
+}
+
+string[] StringLengthLessCutLength(string[] arr, int cutLength)
+{
+    int newArrLength = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+
+        if (arr[i].Length <= cutLength)
+        {
+            newArrLength++;
+        }
+    }
+
+    string[] newArr = new string[newArrLength];
+    int newArrIndex = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= cutLength)
+        {
+            newArr[newArrIndex] = arr[i];
+            newArrIndex++;
+        }
+    }
+    return newArr;
+}
+
+PrintArray(StringLengthLessCutLength(a, 3));
+PrintArray(StringLengthLessCutLength(b, 3));
+PrintArray(StringLengthLessCutLength(c, 3));
